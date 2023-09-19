@@ -86,6 +86,15 @@ export class ShopPage {
         await this.sortContainer.waitFor({ state: "visible" })
     }
 
+    public async checkAllAddedItems() {
+        await this.removeBackpackItem.waitFor({ state: "visible" })
+        await this.removeBackpackItem.waitFor({ state: "visible" })
+        await this.removeTShirtBoltItem.waitFor({ state: "visible" })
+        await this.removeJacketItem.waitFor({ state: "visible" })
+        await this.removeOnesieItem.waitFor({ state: "visible" })
+        await this.removeTShirtRedItem.waitFor({ state: "visible" }) 
+    }
+
     public async addBackpack() {
         await this.addBackpackItem.click()
         await this.removeBackpackItem.waitFor({ state: "visible" })
@@ -116,4 +125,8 @@ export class ShopPage {
         await this.removeTShirtRedItem.waitFor({ state: "visible" })
     }
 
+    public async goToCart() {
+        await this.checkoutLogo.click()
+        this.checkAllAddedItems()
+    }
 }

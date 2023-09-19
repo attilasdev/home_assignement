@@ -1,6 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { LoginPage } from '../pages/LoginPage';
 import { ShopPage } from '../pages/ShopPage';
+import { CheckOutPage } from '../pages/CheckoutPage';
 import dotenv from 'dotenv';
 import path from 'path'
 
@@ -28,4 +29,22 @@ test('Saucedemo inventory page check', async ({ page }) => {
     await shop.addJacket()
     await shop.addOnesie()
     await shop.addTshirtRed()
+})
+
+test('Saucedemo making an order', async ({ page }) => {
+    const shop = new ShopPage(page)
+    const checkout = new LoginPage(page)
+    const order = new CheckOutPage(page)
+    await checkout.goto()
+    await checkout.login(process.env.STANDARD_USER_NAME as string, process.env.USER_PW as string)
+    await shop.addBackpack()
+    await shop.addBikelight()
+    await shop.addTShirtBolt()
+    await shop.addJacket()
+    await shop.addOnesie()
+    await shop.addTshirtRed()
+    await order.checkout()
+    await order.fillingForm()
+    await order.finishOrder()
+    await checkout.logout()
 })
