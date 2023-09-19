@@ -64,14 +64,14 @@ export class ShopPage {
         this.addBikeLightItem = page.locator('#add-to-cart-sauce-labs-bike-light')
         this.addTShirtBoltItem = page.locator('#add-to-cart-sauce-labs-bolt-t-shirt')
         this.addOnesieItem = page.locator('#add-to-cart-sauce-labs-onesie')
-        this.addTShirtRedItem = page.locator('#add-to-cart-test.allthethings()-t-shirt-(red)')
+        this.addTShirtRedItem = page.locator('[data-test="add-to-cart-test.allthethings()-t-shirt-(red)"]')
         this.addJacketItem = page.locator('#add-to-cart-sauce-labs-fleece-jacket')
         
         this.removeBackpackItem = page.locator('#remove-sauce-labs-backpack')
         this.removeBikeLightItem = page.locator('#remove-sauce-labs-bike-light')
         this.removeTShirtBoltItem = page.locator('#remove-sauce-labs-bolt-t-shirt')
         this.removeOnesieItem = page.locator('#remove-sauce-labs-onesie')
-        this.removeTShirtRedItem = page.locator('#remove-test.allthethings()-t-shirt-(red)')
+        this.removeTShirtRedItem = page.locator('[data-test="remove-test.allthethings()-t-shirt-(red)"]')
         this.removeJacketItem = page.locator('#remove-sauce-labs-fleece-jacket')
 
 
