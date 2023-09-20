@@ -42,7 +42,7 @@ export class ShopPage {
 
         this.appLogo = page.locator('.app_logo')
         this.pageTitle = page.locator('.title')
-        this.checkoutLogo = page.locator('.shopping_cart_link')
+        this.checkoutLogo = page.locator('div#shopping_cart_container > .shopping_cart_link')
         this.sortContainer = page.locator('.product_sort_container')
 
 

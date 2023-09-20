@@ -9,11 +9,6 @@ export class CheckOutPage {
     readonly backToShoppingButton: Locator
     readonly checkoutButton: Locator
 
-    readonly firstNameText: Locator
-    readonly lastNameText: Locator
-    readonly zipCodeText: Locator
-    readonly continueButton: Locator
-
     readonly paymentInfo: Locator
     readonly shippingInfo: Locator
     readonly priceTotal: Locator
@@ -29,12 +24,7 @@ export class CheckOutPage {
         
         this.pageTitle = page.locator('.title')
         this.backToShoppingButton = page.locator('#continue-shopping')
-        this.checkoutButton = page.locator('#checkout')
-
-        this.firstNameText = page.locator('#first-name')
-        this.lastNameText = page.locator('#last-name')
-        this.zipCodeText = page.locator('#postal-code')
-        this.continueButton = page.locator('#continue')
+        this.checkoutButton = page.locator('button#checkout')
 
         this.paymentInfo = page.locator('.summary_info > div:nth-of-type(2)')
         this.shippingInfo = page.locator('.summary_info > div:nth-of-type(4)')
@@ -48,20 +38,14 @@ export class CheckOutPage {
 
     }
 
+    public async goto() {
+        await this.page.goto(this.url)
+    }
+
     public async checkout() {
         await this.checkoutButton.click()
-        await this.firstNameText.isVisible()
-        await this.lastNameText.isVisible()
-        await this.zipCodeText.isVisible()
-    }
 
-    public async fillingForm() {
-        await this.firstNameText.fill('testFirstName')
-        await this.lastNameText.fill('testLastName')
-        await this.zipCodeText.fill('1111')
-        await this.continueButton.click()
     }
-
     public async checkCheckoutPage() {
         await this.paymentInfo.isVisible()
         await this.shippingInfo.isVisible()

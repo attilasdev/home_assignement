@@ -12,6 +12,7 @@ export  class LoginPage {
     readonly secondErrorLogo: Locator
     readonly burgerMenu: Locator
     readonly logoutButton: Locator
+    readonly errorMessage: Locator
 
 
 
@@ -24,7 +25,8 @@ export  class LoginPage {
         this.firstErrorLogo = page.locator("div:nth-of-type(1) > svg[role='img'] > path")
         this.secondErrorLogo = page.locator("div:nth-of-type(2) > svg[role='img'] > path")
         this.burgerMenu = page.locator('#react-burger-menu-btn')
-        this.loginButton = page.locator('#logout_sidebar_link')
+        this.logoutButton = page.locator('#logout_sidebar_link')
+        this.errorMessage = page.locator('h3')
     }
 
     public async goto() {
@@ -39,5 +41,9 @@ export  class LoginPage {
     public async logout() {
         await this.burgerMenu.click()
         await this.logoutButton.click()
+    }
+
+    public async errorMessageCheck() {
+        await this.errorMessage.waitFor( {state: "visible"} )
     }
 }
