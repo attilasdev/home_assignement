@@ -8,5 +8,6 @@ Home assignment
 
 To run all tests:
 - npx playwright test 
+
 To update the screenshots for the visual testing: 
 - npx playwright test --update-snapshots  
